@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+    <script src="jquery-1.11.3.js"></script>
+    <style>
+        .cs1{
+            color: pink;
+            font-size: 100px;
+            opacity: 0.5;
+        }
+        .cs2{
+            color: greenyellow;
+            font-family: fantasy;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body ng-app="myApp">
+<p>5.Write a simple Angular JS app that would fadeIn and FadeOut an image (using angular and css3 - hint:use ng-class)</p>
+<div ng-controller="myCtrl">
+    <div ng-class="fadein">
+        <img ng-src={{img}} ng-hide="false" class="img1">
+        <p>{{content}}</p>
+    </div>
+    <button ng-click="fi()">Fade In</button>
+    <button ng-click="fo()">Fade Out</button>
+</div>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+        $scope.img="car1.jpg";
+        $scope.fi=function(){
+            $scope.fadein={"cs1":false,"cs2":true};
+            $scope.content="Fade In";
+            $(".img1").fadeIn(1000);
+        };
+        $scope.fo=function(){
+            $scope.fadein={"cs1":true,"cs2":false};
+            $scope.content="Fade Out";
+            $(".img1").fadeOut(1000);
+        };
+    });
+</script>
+</body>
+</html>

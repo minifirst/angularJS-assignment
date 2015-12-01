@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+</head>
+<body>
+<p>8.Make 3 input fields to enter the phone number.
+    After filling the first three digits
+    in FIRST FIELD the cursor should automatically
+    move on to the second field and
+    when the second field is filled, it should move to the third field</p>
+<!--<div class="tel">-->
+<!--<input type="text" ng-repeat="tel in telphone" ng-keyup="jump()" placeholder="{{tel}}"/>-->
+<!--</div>-->
+<div id="tel">
+    <input type="text" maxlength='3'/>
+    <input type="text"/>
+    <input type="text" maxlength='4'/>
+</div>
+<script>
+    var myapp=angular.module("samepleApp",[]);
+    myapp.controller("firCtr", function ($scope) {
+        $scope.enable= function (i) {
+            if(i==2)
+            {
+                $scope.eb=true;
+
+            }
+            else
+            {
+                $scope.eb=false;
+
+            }
+        };
+
+        $scope.fade= function (i) {
+            if(i==1)
+            {
+                $scope.addClass="img";
+
+            }
+            else
+            {
+                $scope.addClass="img1";
+
+            }
+        };
+
+        $scope.inputList=['one','two','three'];
+        $scope.telphone=['First','second','third'];
+        //$scope.telphone={};
+        $scope.inum=[3,3,4];
+        //$scope.number = 3;
+
+    });
+
+</script>
+</body>
+</html>

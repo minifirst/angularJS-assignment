@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+</head>
+<body ng-app="myApp">
+    <p>4. Create a simple directive that you can reuse across the application.</p>
+<div ng-controller="first">
+    <msgbox></msgbox>
+</div>
+<div ng-controller="second">
+    <msgbox></msgbox>
+</div>
+</body>
+    <script>
+        var app=angular.module("myApp",[]);
+        app.controller("first",function($scope){
+            $scope.account="UserName";
+            $scope.key="PassWord";
+            $scope.btn="Login";
+            $scope.uname="UserName";
+            $scope.ename="PassWord";
+            $scope.submit=function(){
+                alert("First");
+            }
+        });
+        app.controller("second",function($scope){
+            $scope.account="E-mail";
+            $scope.key="Phone";
+            $scope.btn="Submit";
+            $scope.uname="E-mail";
+            $scope.ename="Phone Number";
+            $scope.submit=function(){
+                alert("Second");
+            }
+        });
+        app.directive("msgbox",function(){
+            return{
+                restrict:"E",
+                templateUrl:"templates/basic-4_temp.html"
+            };
+        });
+    </script>
+</html>

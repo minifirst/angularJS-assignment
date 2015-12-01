@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myCtrl">
+    <p>1.How will you display different images based on the
+        status being red, amber, or green?</p>
+    <img ng-src={{imgSrc}} ng-show="true">
+    <button ng-click="imgSrc=imgArry[0]">red</button>
+    <button ng-click="imgSrc=imgArry[1]">amber</button>
+    <button ng-click="imgSrc=imgArry[2]">amber</button><br/>
+
+</div>
+<script>
+    var app=angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+        $scope.imgArry=['car1.jpg','car3.jpg','car5.jpg'];
+    })
+</script>
+</body>
+
+</html>

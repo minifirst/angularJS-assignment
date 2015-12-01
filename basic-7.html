@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myCtrl">
+    <p>7.	Using Angular do the following: There is a checkbox
+        called “SELECT ALL” and 6 independent checkboxes.<br/>
+        a.	When you check “SELECT ALL” checkbox all the independent checboxes should be checked.<br/>
+        b.	When you uncheck “SELECT ALL” checkbox all independent checboxes should be unchecked.<br/>
+        c.	If you select all the independent checkboxes then the SELECT ALL should be checked.<br/>
+    </p>
+    <input type="checkbox" ng-checked="mark"  ng-model="mark">Select ALL
+    <div ng-repeat="item in list">
+        <input type="checkbox" ng-checked="mark" ng-model="!mark">
+        <span>{{item}}</span>
+    </div>
+</div>
+
+</body>
+<script>
+    var app = angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+        $scope.list=['First','Second','Third'];
+    })
+</script>
+</html>

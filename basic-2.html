@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular.js"></script>
+</head>
+<body ng-app="myApp">
+<div ng-controller="myCtrl">
+    <p>2.How will you show/hide buttons and enable/disable buttons conditionally?</p>
+    <img ng-src={{img}} ng-init="kkbox=true" ng-show="kkbox">
+    <button ng-click="kkbox=true" ng-disabled="check">SHOW</button>
+    <button ng-click="kkbox=false" ng-disabled="check">HIDE</button>
+    <button ng-click="toggleImg()" ng-disabled="check">Toggle</button>
+    <button ng-click="enable()">Enable</button>
+    <button ng-click="disable()">Disable</button>
+</div>
+<script>
+    var app=angular.module("myApp",[]);
+    app.controller("myCtrl",function($scope){
+        $scope.img="car1.jpg";
+        $scope.enable=function(){
+            $scope.check=false;
+        };
+        $scope.disable=function(){
+            $scope.check=true;
+        };
+        $scope.toggleImg=function(){
+            $scope.kkbox=!$scope.kkbox;
+        };
+    })
+</script>
+</body>
+
+</html>
